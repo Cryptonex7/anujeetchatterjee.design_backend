@@ -29,10 +29,16 @@ app.post('/subscribe', (req, res)=>{
     db('subscribers').insert({
         email: email,
         joined: new Date()
-    }).then(console.log);
-    res.json( email );
+    })
+        .then(data => {
+            console.log(data)
+            res.status(200).json( email )
+        })
+        .catch(err => {
+            res.status(400).json( "400" )
+        })
 })
 
-app.listen(process.env.PORT || 3001, ()=>{
-    console.log(`App is Listening on Port ${process.env.PORT}`);
+app.listen( 3001, ()=>{
+    console.log(`App is Listening on Port `);
 })
