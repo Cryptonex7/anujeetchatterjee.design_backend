@@ -39,6 +39,6 @@ app.post('/subscribe', (req, res)=>{
         })
 })
 
-app.listen( 3001, ()=>{
-    console.log(`App is Listening on Port `);
+app.listen(process.env.PORT || 3001, ()=>{
+    console.log(`App is Listening on Port ${process.env.PORT}`);
 })
