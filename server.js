@@ -14,11 +14,24 @@ const db = knex({
 
 const app = express();
 
-app.use(cors());
+var whitelist = ['http://localhost:3002/', 'http://ac-server.herokuapp.com/']
+var corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+
+
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
+
 app.get('/', (req, res) => {
-    res.json('Its working');
+    res.json('Its working on server');
 })
 
 app.post('/subscribe', (req, res)=>{
@@ -37,6 +50,6 @@ app.post('/subscribe', (req, res)=>{
         })
 })
 
-app.listen(process.env.PORT || 3001, ()=>{
+app.listen(process.env.PORT || 3002, ()=>{
     console.log(`App is Listening on Port ${process.env.PORT}`);
 })
