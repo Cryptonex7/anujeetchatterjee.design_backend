@@ -46,8 +46,8 @@ app.post('/subscribe', (req, res)=>{
             res.status(200).json( email )
         })
         .catch(err => {
-            res.status(400).json( "400" )
             console.log(err);
+            res.status(400).json( err )
         })
 })
 
