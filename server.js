@@ -47,6 +47,7 @@ app.post('/subscribe', (req, res)=>{
         })
         .catch(err => {
             res.status(400).json( "400" )
+            console.log(err);
         })
 })
 
