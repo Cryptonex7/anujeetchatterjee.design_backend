@@ -14,7 +14,7 @@ const db = knex({
 
 const app = express();
 
-var whitelist = ['http://localhost:3002/', 'http://ac-server.herokuapp.com/', 'https://cryptonex7.github.io']
+var whitelist = ['http://localhost:3000/', 'http://ac-server.herokuapp.com/', 'https://cryptonex7.github.io']
 var corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
