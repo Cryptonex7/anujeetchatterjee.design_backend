@@ -1,22 +1,23 @@
 {
   "name": "anujeetchatterjee.design_backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Backend server linked Database for AnujeetChatterjee.Design App",
   "main": "server.js",
   "dependencies": {
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "knex": "^0.15.0",
-    "pg": "^7.4.3"
+    "pg": "^7.4.3",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.9"
   },
   "devDependencies": {
-    "nodemon": "^1.18.9",
     "ws": "3.3.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon -L server.js"
   },
   "repository": {
     "type": "git",

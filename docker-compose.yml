@@ -1,0 +1,26 @@
+version: '3.6'
+
+services:
+  #Node.js server-container
+  anujeetchatterjee-backend:
+    container_name: backend
+    build: ./ #build from a dockerfile present at this path.
+    command: npm start
+    working_dir: /usr/src/anujeetchatterjee-backend
+    environment:
+      POSTGRES_URI: postgres://postgres:anuchatt@postgres:5432/Portfolio-Subscribers
+    ports: 
+      - "3000:3000"
+    volumes:
+      - ./:/usr/src/anujeetchatterjee-backend
+
+  #PostgreSQL
+  postgres:
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: anuchatt
+      POSTGRES_DB: Portfolio-Subscribers
+      POSTGRES_HOST: postgres
+    build: ./postgres
+    ports:
+      - "5432:5432"
